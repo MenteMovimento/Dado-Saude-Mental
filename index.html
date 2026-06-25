@@ -54,7 +54,6 @@
     button:hover{transform:translateY(-2px)}
     button:disabled{opacity:.55;cursor:not-allowed;transform:none}
     
-    /* --- BOTÃO GIRAR COM MAIS CONTRASTE --- */
     #btnGirar {
       background: var(--azul-escuro);
       font-size: 18px;
@@ -75,7 +74,6 @@
       background: #64748b;
       box-shadow: none;
     }
-    /* ----------------------------------- */
 
     .btn-secundario{background:#475569;color:#ffffff;box-shadow:0 4px 12px rgba(71,85,105,.25)}
     .btn-secundario:hover{background:#334155}
@@ -102,13 +100,11 @@
     .modal-corpo{padding:22px;color:#0f172a}
     .caixa-desafio{background:#f1f5f9;border-left:6px solid currentColor;padding:18px;border-radius:16px;font-size:18px;line-height:1.6;margin-bottom:18px;color:#0f172a}
     
-    /* --- TEMPORIZADOR (APENAS PARA PRÁTICAS COM TEMPO) --- */
     .temporizador{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;margin:18px 0;padding:16px;border-radius:18px;background:#f1f5f9;border:2px solid #e2e8f0;display:none}
     .temporizador.ativo{display:grid}
     .tempo{font-size:clamp(30px,6vw,42px);font-weight:900;color:var(--azul-escuro);min-width:110px;text-align:center}
     .barra{height:14px;background:#cbd5e1;border-radius:999px;overflow:hidden;min-width:100px}
     .progresso{width:0%;height:100%;background:currentColor;transition:width .3s linear}
-    /* ----------------------------------- */
     
     .reflexao{margin-top:18px;padding:16px;border-radius:16px;background:#fef3c7;color:#78350f;line-height:1.5;font-weight:800;border:2px solid #fde68a}
     .modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
@@ -119,20 +115,19 @@
     .modal-acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
     .modal-acoes button{flex:1 1 150px}
 
-    /* --- IMAGEM DECORATIVA DO LADO DIREITO (MAIOR) --- */
     .imagem-lateral {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100%;
       width: 100%;
-      max-width: 300px; /* Aumentado de 220px para 300px */
+      max-width: 300px;
       margin: 0 auto;
     }
     .imagem-lateral img {
       width: 100%;
       height: auto;
-      max-height: 500px; /* Aumentado de 420px para 500px */
+      max-height: 500px;
       object-fit: contain;
       border-radius: 20px;
       box-shadow: 0 8px 25px rgba(15,45,102,.15);
@@ -140,7 +135,45 @@
       background: #ffffff;
       padding: 10px;
     }
-    /* ----------------------------------- */
+
+    /* --- FOOTER COM LOGOS --- */
+    .footer-logos {
+      grid-column: 1 / -1;
+      width: 100%;
+      margin-top: 40px;
+      padding: 25px 20px;
+      background: #ffffff;
+      border: 2px solid var(--linha);
+      border-radius: 24px;
+      box-shadow: 0 16px 35px rgba(15,45,102,.12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .footer-logos .logo-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 200px;
+      max-height: 80px;
+    }
+    .footer-logos .logo-item img {
+      max-width: 100%;
+      max-height: 80px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .footer-logos .logo-item.living-peace {
+      max-width: 280px;
+    }
+    .footer-logos .logo-item.living-peace img {
+      max-height: 75px;
+    }
+    /* ------------------------------ */
 
     @media(max-width:1050px){
       .layout{grid-template-columns:1fr}
@@ -167,6 +200,21 @@
       }
       .imagem-lateral img {
         max-height: 300px;
+      }
+      .footer-logos {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      .footer-logos .logo-item {
+        max-width: 150px;
+        max-height: 60px;
+      }
+      .footer-logos .logo-item.living-peace {
+        max-width: 220px;
+      }
+      .footer-logos .logo-item img {
+        max-height: 60px;
       }
     }
   </style>
@@ -227,18 +275,30 @@
 
       <!-- COLUNA DA DIREITA: IMAGEM + HISTÓRICO -->
       <section class="card" style="border:none; box-shadow:none; background:transparent; padding:0; display:flex; flex-direction:column; gap:20px;">
-        <!-- IMAGEM DO LADO DIREITO (MAIOR) -->
         <div class="imagem-lateral">
-          <!-- Substitua o src pelo caminho da sua imagem -->
-          <img src="cubo.jpeg" alt="Cubo da paz">
+          <img src="cubo.jpg" alt="Cubo da paz">
         </div>
         
-        <!-- HISTÓRICO ABAIXO DA IMAGEM -->
         <div class="card" style="margin-top:0;">
           <h2>Histórico</h2>
           <div class="historico" id="historico"><p class="vazio">Ainda não guardaste nenhum gesto.</p></div>
         </div>
       </section>
+
+      <!-- FOOTER COM AS LOGOS DAS ASSOCIAÇÕES (COM PLACEHOLDERS) -->
+      <div class="footer-logos">
+        <div class="logo-item">
+          <img src="https://placehold.co/400x150/0f2d66/ffffff?text=Mente+Movimento" alt="Mente Movimento">
+        </div>
+        <div class="logo-item living-peace">
+          <img src="https://placehold.co/500x150/5a9e1a/ffffff?text=Living+Peace+International" alt="Living Peace International">
+        </div>
+        <div class="logo-item">
+          <img src="https://placehold.co/400x150/0e8bd6/ffffff?text=ASSP" alt="ASSP - Associação de Solidariedade Social dos Professores">
+        </div>
+      </div>
+      <!-- ----------------------------------- -->
+
     </main>
   </div>
 
@@ -257,13 +317,11 @@
       <div class="modal-corpo" id="modalCorpo">
         <div class="caixa-desafio" id="desafioTexto">A prática aparece aqui depois de girar o dado.</div>
         
-        <!-- TEMPORIZADOR (aparece apenas quando a prática tem tempo definido) -->
         <div class="temporizador" id="temporizador">
           <div class="tempo" id="tempoTexto">00:30</div>
           <div class="barra"><div class="progresso" id="progresso"></div></div>
           <button id="btnTempo" style="color: black;">Iniciar</button>
         </div>
-        <!-- ----------------------------------- -->
         
         <div class="reflexao" id="reflexaoTexto">Pergunta de reflexão: como te sentes agora?</div>
         <div class="modal-grid">
@@ -311,7 +369,6 @@
     function abrirModal(){modalOverlay.classList.add("ativo");modalOverlay.setAttribute("aria-hidden","false");document.body.classList.add("modal-aberto")}
     function fecharModal(){modalOverlay.classList.remove("ativo");modalOverlay.setAttribute("aria-hidden","true");document.body.classList.remove("modal-aberto")}
     
-    // Funções do temporizador
     function atualizarTempo(){
       const minutos=Math.floor(tempoRestante/60);
       const segundos=tempoRestante%60;
@@ -351,7 +408,6 @@
       btnTempo.textContent="Iniciar";
     }
     
-    // Função para guardar automaticamente
     function guardarAutomaticamente(){
       if(!sorteadoAtual || jaGuardado) return;
       
@@ -378,7 +434,6 @@
     function girarCubo(){
       if(aGirar)return;
       
-      // Verificar se o estado foi escolhido
       if(!estadoAntes){
         estadoAtual.textContent = "⚠️ Por favor, escolhe primeiro como te sentes (em cima) antes de girar o dado.";
         estadoAtual.style.borderColor = "#dc2626";
@@ -391,7 +446,6 @@
         }, 3000);
         return;
       }
-      // Resetar estilo se passou
       estadoAtual.style.borderColor = "#cbd5e1";
       estadoAtual.style.backgroundColor = "#f1f5f9";
       estadoAtual.style.color = "#1e293b";
@@ -415,7 +469,6 @@
       setTimeout(function(){
         mostrarResultado(sorteado);
         abrirModal();
-        // Guardar automaticamente após abrir o modal
         guardarAutomaticamente();
         btnGirar.disabled=false;
         aGirar=false;
@@ -433,7 +486,6 @@
       fraseFinal.value=opcao.final;
       estadoAtual.innerHTML=`Resultado: <strong style="color:${opcao.cor};">${opcao.nome}</strong>. A prática abriu numa janela.`;
       
-      // Configurar temporizador apenas se a prática tiver tempo definido
       if(opcao.tempo){
         tempoTotal = opcao.tempo;
         tempoRestante = tempoTotal;
